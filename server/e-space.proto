@@ -1,0 +1,52 @@
+syntax = "proto3";
+package server;
+
+service Auction {
+  rpc RegisterUser (RegisterUserRequest) returns (RegisterUserResponse) {}
+  rpc AddProduct (AddProductRequest) returns (AddProductResponse) {}
+  rpc GetProducts (GetProductsRequest) returns (GetProductsResponse) {}
+  rpc PlaceBid (PlaceBidRequest) returns (PlaceBidResponse) {}
+}
+
+message RegisterUserRequest {
+  string nickname = 1;
+}
+
+message RegisterUserResponse {
+  bool success = 1;
+}
+
+message AddProductRequest {
+  string name = 1;
+  double initial_price = 2;
+  string seller = 3;
+}
+
+message AddProductResponse {
+  bool success = 1;
+  string product_id = 2;
+}
+
+message GetProductsRequest {}
+
+message ProductInfo {
+  string id = 1;
+  string name = 2;
+  double initial_price = 3;
+  double current_price = 4;
+  string seller = 5;
+}
+
+message GetProductsResponse {
+  repeated ProductInfo products = 1;
+}
+
+message PlaceBidRequest {
+  string product_id = 1;
+  string bidder = 2;
+  double amount = 3;
+}
+
+message PlaceBidResponse {
+  bool success = 1;
+}

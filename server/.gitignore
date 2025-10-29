@@ -1,0 +1,23 @@
+# Ignore build directory
+build/
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore protobuf generated files (if you want to ignore generated sources)
+*.pb.cc
+*.pb.h
+*.grpc.pb.cc
+*.grpc.pb.h
+*.o
+
+# Ignore editor/project files
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode/
+.idea/
